@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import Food from './Food';
 import Cart from './Cart';
 import Address from './Address';
@@ -21,7 +21,9 @@ export default class Index extends Component {
      };
   }
 
-  /* Básicamente lo que ocurre es que si el module es 1, te va a llevar a la comida, si es 2 al carrito, etc */
+  /* Básicamente lo que ocurre es que si el module es 1, te va a llevar a la comida, si es 2 al carrito, etc.
+  Abajo, cuando rendericemos los distintos componentes, cada uno tendrá un onPress que cambiará este módulo,
+  mostrándonos así las distintas secciones.  */
 
   render() {
     return (
@@ -37,22 +39,23 @@ export default class Index extends Component {
         }
 
         <View style={styles.bottomTab}>
-          <View style={styles.itemTab}>
-            <Text>Food</Text>
-          </View>
-          <View style={styles.itemTab}>
-            <Text>Cart</Text>
-          </View>
-          <View style={styles.itemTab}>
-            <Text>Address</Text>
-          </View>
-          <View style={styles.itemTab}>
-            <Text>Profile</Text>
-          </View>
-          
-
-        
-        </View>
+           <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:1})}>
+             <Icon name="md-restaurant" size={30} color={this.state.module==1?"#900":"gray"} />
+             <Text>Food</Text>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:2})}>
+             <Icon name="md-basket" size={30} color={this.state.module==2?"#900":"gray"} />
+             <Text>Cart</Text>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:3})}>
+             <Icon name="md-map" size={30} color={this.state.module==3?"#900":"gray"} />
+             <Text>Address</Text>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:4})}>
+             <Icon name="md-contact" size={30} color={this.state.module==4?"#900":"gray"} />
+             <Text>Profile</Text>
+           </TouchableOpacity>
+         </View>
       </View>
     );
   }

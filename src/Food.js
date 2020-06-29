@@ -11,6 +11,8 @@ import { Text,
 } from 'react-native';
 var {height, width } = Dimensions.get('window');
 import Swiper from 'react-native-swiper'
+import Icon from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class App extends Component {
 
@@ -63,7 +65,7 @@ export default class App extends Component {
               <View style={{height:20}} />
           </View>
           <View style={{width:width, borderRadius:20, paddingVertical:20, backgroundColor:'white'}}>
-            <Text style={styles.titleCatg}>Categories {this.state.selectCatg}</Text>
+            <View style={{height: 10}} />
             <FlatList
               horizontal={true}
               data={this.state.dataCategories}
@@ -102,6 +104,16 @@ export default class App extends Component {
             </Text>
             <Text>Descp Food and Details</Text>
             <Text style={{fontSize:20,color:"green"}}>${item.price}</Text>
+
+            <TouchableOpacity 
+                style={{width:(width/2)-40, flexDirection: 'row', backgroundColor: '#33c37d', alignItems: 'center', justifyContent: 'center', borderRadius: 5, padding: 5}}
+                onPress={()=>this.onClickAddCart(item)}
+                
+                >
+                <Text style={{color: 'whitesmoke', fontSize: 18, fontWeight: 'bold'}}>Add cart</Text>
+                <View style={{width: 10}}/>
+                <Icon name='ios-add-circle' size={30} color={'whitesmoke'} />        
+            </TouchableOpacity>
           </TouchableOpacity>
         )
     }
@@ -115,9 +127,35 @@ export default class App extends Component {
           resizeMode="contain"
           source={{uri : item.image}} />
         <Text style={{fontWeight:'bold',fontSize:22}}>{item.name}</Text>
+        
+        
       </TouchableOpacity>
     )
   }
+  onClickAddCart(data){
+    const itemcart = {    
+        food:data,
+        quantity: 1,
+        price: data.price
+    }
+    AsyncStorage.getItem('cart').then((datacart)=>{
+        if (datacart!==null) {
+            const cart = JSON.parse(datacart)
+            cart.push(datacart)
+            AsyncStorage.setItem('cart',JSON.stringify(cart))
+        }
+        else {
+            const cart = []
+            cart.push(itemcart)
+            AsyncStorage.setItem('cart', JSON.stringify(cart))
+
+        }
+        alert('Add success')
+    })
+    .catch((error)=>{
+        alert(error)
+    }
+    )}
 }
 
 const styles = StyleSheet.create({
