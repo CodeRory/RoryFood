@@ -132,6 +132,8 @@ export default class App extends Component {
       </TouchableOpacity>
     )
   }
+
+
   onClickAddCart(data){
     const itemcart = {    
         food:data,
@@ -141,7 +143,7 @@ export default class App extends Component {
     AsyncStorage.getItem('cart').then((datacart)=>{
         if (datacart!==null) {
             const cart = JSON.parse(datacart)
-            cart.push(datacart)
+            cart.push(itemcart)
             AsyncStorage.setItem('cart',JSON.stringify(cart))
         }
         else {
@@ -150,12 +152,12 @@ export default class App extends Component {
             AsyncStorage.setItem('cart', JSON.stringify(cart))
 
         }
-        alert('Add success')
-    })
-    .catch((error)=>{
-        alert(error)
-    }
-    )}
+        alert('Add successful')
+        })
+        .catch((error)=>{
+            alert(error)
+        }
+        )}
 }
 
 const styles = StyleSheet.create({
