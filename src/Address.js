@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import MapView from 'react-native-maps';
 
 export default class Address extends Component {
 
@@ -13,7 +14,7 @@ export default class Address extends Component {
   render() {
     return (
       <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-         <Text>Address</Text>
+         <Text>SELECCIONA TU RUTA</Text>
       </View>
     );
   }
