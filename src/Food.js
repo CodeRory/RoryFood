@@ -28,23 +28,23 @@ export default class App extends Component {
   }
 
   componentDidMount(){
-    const url = "http://tutofox.com/foodapp/api.json"
-    return fetch(url)
-    .then((response) => response.json())
-    .then((responseJson) => {
+    const json = require('../api.json')
+    const jsonArray = json.banner;
+    const jsonArray2 = json.categories;
+    const jsonArray3 = json.food;
 
+    try{
       this.setState({
         isLoading: false,
-        dataBanner: responseJson.banner,
-        dataCategories: responseJson.categories,
-        dataFood: responseJson.food,
+        dataBanner: json.banner,
+        dataCategories: json.categories,
+        dataFood: json.food,
         
       });
-
-    })
-    .catch((error) =>{
+    
+    }catch(error) {
       console.error(error);
-    });
+    }; 
   }
 
   render() {
