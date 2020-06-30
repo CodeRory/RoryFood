@@ -56,7 +56,7 @@ export default class Index extends Component {
            </TouchableOpacity>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:4})}>
              <AntDesign name="message1" size={30} color={this.state.module==4?"#900":"gray"} />
-             <Text>Profile</Text>
+             <Text>Notifications</Text>
            </TouchableOpacity>
          </View>
       </View>
