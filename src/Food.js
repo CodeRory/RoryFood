@@ -52,7 +52,7 @@ export default class App extends Component {
       <ScrollView>
         <View style={{ flex: 1,backgroundColor:"#f2f2f2" }}>
           <View style={{width: width, alignItems:'center'}} >
-              <Image style={{height:60,width:width/2,margin:10 }} resizeMode="contain" source={require("../assets/foodapp.png")}  />
+              <Image style={{height:60,width:width/2,marginTop: 25, }} resizeMode="contain" source={require("../assets/foodapp.png")}  />
               <Swiper style={{height:width/2}}  showsButtons={false} autoplay={true} autoplayTimeout={2}>
                 {
                   this.state.dataBanner.map((itembann)=>{
