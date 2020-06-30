@@ -8,19 +8,19 @@
     {
       "id": 1,
       "name": "Bikes",
-      "color": "#fbc831",
+      "color": "whitesmoke",
       "image": "https://images.pexels.com/photos/133697/pexels-photo-133697.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
       "id": 2,
       "name": "Parts",
-      "color": "#9fd236",
+      "color": "whitesmoke",
       "image": "https://images.pexels.com/photos/1020136/pexels-photo-1020136.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
       "id": 3,
       "name": "Helmets",
-      "color": "orange",
+      "color": "whitesmoke",
       "image": "https://cdn.pixabay.com/photo/2017/09/12/14/51/specialized-2742536_960_720.jpg"
     },
     {

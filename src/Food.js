@@ -50,7 +50,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView>
-        <View style={{ flex: 1,backgroundColor:"#f2f2f2" }}>
+        <View style={{ flex: 1, backgroundColor:"#f2f2f2" }}>
           <View style={{width: width, alignItems:'center'}} >
               <Image style={{height:60,width:width/2,marginTop: 25, }} resizeMode="contain" source={require("../assets/foodapp.png")}  />
               <Swiper style={{height:width/2}}  showsButtons={false} autoplay={true} autoplayTimeout={2}>
@@ -98,11 +98,11 @@ export default class App extends Component {
             style={styles.imageFood}
             resizeMode="contain"
             source={{uri:item.image}} />
-            <View style={{height:((width/2)-20)-90, backgroundColor:'transparent', width:((width/2)-20)-10}} />
+            <View style={{height:((width/2)), backgroundColor:'transparent', width:((width/2)-20)}} />
             <Text style={{fontWeight:'bold',fontSize:22,textAlign:'center'}}>
               {item.name}
             </Text>
-            <Text>Descp Food and Details</Text>
+            <Text>Details of product</Text>
             <Text style={{fontSize:20,color:"green"}}>${item.price}</Text>
 
             <TouchableOpacity 
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   imageBanner: {
     height:width/2,
     width:width-40,
-    borderRadius:10,
+    borderRadius:60,
     marginHorizontal:20
   }, 
   divCategorie:{
@@ -177,20 +177,19 @@ const styles = StyleSheet.create({
     fontSize:30,
     fontWeight:'bold',
     textAlign:'center',
-    marginBottom:10
   },
   imageFood:{
     width:((width/2)-20)-10,
-    height:((width/2)-20)-30,
+    height:((width/2)),
     backgroundColor:'transparent',
     position:'absolute',
-    top:-45
+    marginTop: 5,
   },
   divFood:{
     width:(width/2)-20,
     padding:10,
     borderRadius:10,
-    marginTop:55,
+    marginTop:5,
     marginBottom:5,
     marginLeft:10,
     alignItems:'center',
