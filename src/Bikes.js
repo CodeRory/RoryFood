@@ -6,12 +6,10 @@ import { Text,
   Dimensions,
   View,
   ScrollView,
-  TextInput,
   TouchableOpacity
 } from 'react-native';
 var {height, width } = Dimensions.get('window');
 import Swiper from 'react-native-swiper'
-import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -80,8 +78,7 @@ export default class App extends Component {
               keyExtractor = { (item, index) => index.toString() }
               style={{marginBottom: 20}}
             />
-            <FlatList
-              //horizontal={true}
+            <FlatList              
               data={this.state.dataFood}
               numColumns={2}
               renderItem={({ item }) => this._renderItemFood(item)}
@@ -89,8 +86,6 @@ export default class App extends Component {
             />
             <View style={{height:20}} />
           </View>
-
-
         </View>
       </ScrollView>
     );
@@ -115,8 +110,7 @@ export default class App extends Component {
 
             <TouchableOpacity 
                 style={{width:(width/2)-40, flexDirection: 'row', backgroundColor: colors.primary, alignItems: 'center', justifyContent: 'center', borderRadius: 5, padding: 5}}
-                onPress={()=>this.onClickAddCart(item)}
-                
+                onPress={()=>this.onClickAddCart(item)}                
                 >
                 <Text style={{color: 'whitesmoke', fontSize: 18, fontWeight: 'bold'}}>Add to cart</Text>
                 <View style={{width: 10}}/>
@@ -131,18 +125,16 @@ export default class App extends Component {
       <TouchableOpacity style={[styles.divCategorie,{backgroundColor:item.color}]}
       onPress={()=>this.setState({selectCatg:item.id})}>
         <Image
-          style={{width:100,height:80}}
+          style={{width:100, height:80}}
           resizeMode="contain"
           source={{uri : item.image}} />
         <Text style={{fontWeight:'bold',fontSize:22}}>{item.name}</Text>
-        
-        
       </TouchableOpacity>
     )
   }
 
 
-  onClickAddCart(data){
+onClickAddCart(data){
     const itemcart = {    
         bikes:data,
         quantity: 1,
@@ -160,7 +152,7 @@ export default class App extends Component {
             AsyncStorage.setItem('cart', JSON.stringify(cart))
 
         }
-        alert('Add successful')
+        alert('Product added to cart!')
         })
         .catch((error)=>{
             alert(error)

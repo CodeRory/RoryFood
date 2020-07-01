@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Food from './Food';
+import Bikes from './Bikes';
 import Cart from './Cart';
 import Address from './Address';
 import Profile from './Profile';
@@ -10,14 +9,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import colors from './colors';
 
-
-
 var { width } = Dimensions.get('window')
-
 console.disableYellowBox = true;
 
 export default class Index extends Component {
-
   constructor(props) {
      super(props);
      this.state = {
@@ -34,7 +29,7 @@ export default class Index extends Component {
       <View style={{flex:1}}>
         {
           this.state.module==1?
-          <Food />
+          <Bikes />
           : this.state.module==2?
           <Cart />
           : this.state.module==3?
@@ -80,7 +75,6 @@ const styles = StyleSheet.create({
     width:width/4,
     backgroundColor:'white',
     alignItems:'center',
-    justifyContent:'center',
-    
+    justifyContent:'center',    
   }
 })

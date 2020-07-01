@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Dimensions, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-
-// import icons
+import { Text, View, Image, Dimensions, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import colors from './colors';
@@ -64,42 +62,35 @@ export default class Cart extends Component {
                           </View>
                         </View>
                       </View>
-                    </View>
-                     
-                     
+                    </View>   
                      )
                     } )
                 }
-                
-                
-                
          </ScrollView>
-
          <View style={{height:20}} />
-         <Text style={{fontSize:28, color: '#33c37d', textAlign: 'center'}}>$ {this.onLoadTotal()}</Text>
+          <Text style={{fontSize:28, color: '#33c37d', textAlign: 'center'}}>$ {this.onLoadTotal()}</Text>
          </View>
-
          <View style={{height:10}} />
+          <TouchableOpacity 
+            onPress={() => Alert.alert('This is just a template', 'Here you would buy your items.')}
+            style={{
+              backgroundColor: colors.primarylight,
+              width:width-40,
+              alignItems:'center',
+              padding:10,
+              borderRadius:5,
+              
+            }}>
+            <Text style={{
+                fontSize:24,
+                fontWeight:"bold",
+                color: colors.white,
+              }}>
+              CHECKOUT
+            </Text>
+          </TouchableOpacity>
 
-       <TouchableOpacity style={{
-           backgroundColor: colors.primarylight,
-           width:width-40,
-           alignItems:'center',
-           padding:10,
-           borderRadius:5
-         }}>
-         <Text style={{
-             fontSize:24,
-             fontWeight:"bold",
-             color: colors.white,
-           }}>
-           CHECKOUT
-         </Text>
-       </TouchableOpacity>
-
-       <View style={{height:20}} />
-
-
+          <View style={{height:20}} />
       </View>
     );
   }
@@ -114,8 +105,6 @@ export default class Cart extends Component {
       }
       return total
   }
-
-
 
 
 

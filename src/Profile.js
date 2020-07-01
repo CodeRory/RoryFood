@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
-import Constants from 'expo-constants';
+import { Text, View, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons';
 
@@ -18,15 +17,15 @@ export default class Profile extends Component {
           </View>
         </View>        
         <View style={styles.body}>
-          <TouchableOpacity style={styles.messages}>
+          <TouchableOpacity style={styles.messages} onPress={() => Alert.alert('This is just a template', 'Here you would find the messages section.')}>
             <MaterialCommunityIcons name="android-messages" size={30} color="green" />
             <Text style={styles.text}>Messages</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.routes}>
+          <TouchableOpacity style={styles.routes} onPress={() => Alert.alert('This is just a template', 'Here you would find the routes section.')}>
             <MaterialCommunityIcons name="routes" size={30} color="green" />
             <Text style={styles.text}>My routes</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.logout}>
+          <TouchableOpacity style={styles.logout} onPress={() => Alert.alert('This is just a template', 'Here you would logout.')}>
             <AntDesign name="logout" size={30} color="green" />
             <Text style={styles.text}>Log Out</Text>
           </TouchableOpacity>
