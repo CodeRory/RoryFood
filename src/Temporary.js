@@ -29,7 +29,7 @@ export default class Address extends Component {
     }
     
   }
- /*  AIzaSyDCayUZOlPgyNRCih1TiJNmFKXSRpmE3yA */
+
 
 const styles = StyleSheet.create({
   container: {
