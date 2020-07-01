@@ -36,22 +36,18 @@ export default class Cart extends Component {
       <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
          <View style={{height:20}} />
          <Text style={{fontSize:28, color: colors.primarydark, marginTop: 20}}>Cart</Text>
-         <View style={{height:10}} />
-
-         
+         <View style={{height:10}} />       
 
          <View style={{flex:1}}>
-
-         <ScrollView>
-         
+         <ScrollView>         
          {
              this.state.dataCart.map((item, i)=>{
                  return(
                      <View style={{width:width-20,margin:10,backgroundColor:'transparent', flexDirection:'row', borderBottomWidth:2, borderColor:"#cccccc", paddingBottom:10}}>
-                      <Image resizeMode={"contain"} style={{width:width/3,height:width/3}} source={{uri: 'item.food.image'}} />
+                      <Image resizeMode={"contain"} style={{width:width/3,height:width/3}} source={{uri: item.bikes.image}} />
                       <View style={{flex:1, backgroundColor:'transparent', padding:10, justifyContent:"space-between"}}>
                         <View>
-                          <Text style={{fontWeight:"bold", fontSize:20}}>{item.food.name}</Text>
+                          <Text style={{fontWeight:"bold", fontSize:20}}>{item.bikes.name}</Text>
                           <Text>Description of product </Text>
                         </View>
                         <View style={{flexDirection:'row',justifyContent:'space-between'}}>

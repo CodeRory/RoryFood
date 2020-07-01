@@ -34,14 +34,14 @@ export default class App extends Component {
     const json = require('../api.json')
     const jsonArray = json.banner;
     const jsonArray2 = json.categories;
-    const jsonArray3 = json.food;
+    const jsonArray3 = json.bikes;
 
     try{
       this.setState({
         isLoading: false,
         dataBanner: json.banner,
         dataCategories: json.categories,
-        dataFood: json.food,
+        dataFood: json.bikes,
         
       });
     
@@ -144,7 +144,7 @@ export default class App extends Component {
 
   onClickAddCart(data){
     const itemcart = {    
-        food:data,
+        bikes:data,
         quantity: 1,
         price: data.price
     }
