@@ -13,6 +13,9 @@ var {height, width } = Dimensions.get('window');
 import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import colors from './colors';
 
 export default class App extends Component {
 
@@ -50,10 +53,13 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView>
-        <View style={{ flex: 1, backgroundColor:"#f2f2f2" }}>
+        <View style={{ flex: 1, backgroundColor: colors.primary }}>
           <View style={{width: width, alignItems:'center'}} >
-              <Image style={{height:60,width:width/2,marginTop: 25, }} resizeMode="contain" source={require("../assets/foodapp.png")}  />
-              <Swiper style={{height:width/2}}  showsButtons={false} autoplay={true} autoplayTimeout={2}>
+              <View style={styles.header}>
+                <Text style={styles.titleHeader}>Rory Bikes</Text>
+                <MaterialCommunityIcons name="bike" size={45} color="black" />              
+              </View>              
+              <Swiper style={{height:width/2}} activeDotColor={'whitesmoke'} showsButtons={false} autoplay={true} autoplayTimeout={2}>
                 {
                   this.state.dataBanner.map((itembann)=>{
                     return(
@@ -63,14 +69,16 @@ export default class App extends Component {
                 }
               </Swiper>
               <View style={{height:20}} />
-          </View>
+          </View>          
           <View style={{width:width, borderRadius:20, paddingVertical:20, backgroundColor:'white'}}>
             <View style={{height: 10}} />
+            <Text style={{alignSelf: 'center', fontSize: 30, fontWeight: 'bold', marginTop: -20, marginBottom: 10}}>Shop</Text>
             <FlatList
-              horizontal={true}
               data={this.state.dataCategories}
+              horizontal={true}
               renderItem={({ item }) => this._renderItem(item)}
               keyExtractor = { (item, index) => index.toString() }
+              style={{marginBottom: 20}}
             />
             <FlatList
               //horizontal={true}
@@ -103,16 +111,16 @@ export default class App extends Component {
               {item.name}
             </Text>
             <Text>Details of product</Text>
-            <Text style={{fontSize:20,color:"green"}}>${item.price}</Text>
+            <Text style={{fontSize:20,color: colors.primarydark}}>${item.price}</Text>
 
             <TouchableOpacity 
-                style={{width:(width/2)-40, flexDirection: 'row', backgroundColor: '#33c37d', alignItems: 'center', justifyContent: 'center', borderRadius: 5, padding: 5}}
+                style={{width:(width/2)-40, flexDirection: 'row', backgroundColor: colors.primary, alignItems: 'center', justifyContent: 'center', borderRadius: 5, padding: 5}}
                 onPress={()=>this.onClickAddCart(item)}
                 
                 >
-                <Text style={{color: 'whitesmoke', fontSize: 18, fontWeight: 'bold'}}>Add cart</Text>
+                <Text style={{color: 'whitesmoke', fontSize: 18, fontWeight: 'bold'}}>Add to cart</Text>
                 <View style={{width: 10}}/>
-                <Icon name='ios-add-circle' size={30} color={'whitesmoke'} />        
+                <MaterialIcons name="add-shopping-cart" size={23} color="whitesmoke" />        
             </TouchableOpacity>
           </TouchableOpacity>
         )
@@ -161,29 +169,11 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  imageBanner: {
-    height:width/2,
-    width:width-40,
-    borderRadius:60,
-    marginHorizontal:20
-  }, 
   divCategorie:{
     backgroundColor:'red',
     margin:5, alignItems:'center',
     borderRadius:10,
     padding:10
-  },
-  titleCatg:{
-    fontSize:30,
-    fontWeight:'bold',
-    textAlign:'center',
-  },
-  imageFood:{
-    width:((width/2)-20)-10,
-    height:((width/2)),
-    backgroundColor:'transparent',
-    position:'absolute',
-    marginTop: 5,
   },
   divFood:{
     width:(width/2)-20,
@@ -197,5 +187,33 @@ const styles = StyleSheet.create({
     shadowOpacity:0.3,
     shadowRadius:50,
     backgroundColor:'white',
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: 35,
+    marginBottom: 10,
+  },
+  imageBanner: {
+    height:width/2,
+    width:width-40,
+    borderRadius:60,
+    marginHorizontal:20
+  }, 
+  imageFood:{
+    width:((width/2)-20)-10,
+    height:((width/2)),
+    backgroundColor:'transparent',
+    position:'absolute',
+    marginTop: 5,
+  },
+  titleCatg:{
+    fontSize:30,
+    fontWeight:'bold',
+    textAlign:'center',
+  },
+  titleHeader: {
+    fontSize: 40,
+    marginRight: 15,
   }
 });

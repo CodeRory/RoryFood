@@ -8,6 +8,7 @@ import Profile from './Profile';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import colors from './colors';
 
 
 
@@ -43,19 +44,19 @@ export default class Index extends Component {
 
         <View style={styles.bottomTab}>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:1})}>
-             <MaterialIcons name="directions-bike" size={30} color={this.state.module==1?"#900":"gray"} />
+             <MaterialIcons name="directions-bike" size={30} color={this.state.module==1?colors.primarydark:"gray"} />
              <Text>Shop</Text>
            </TouchableOpacity>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:2})}>
-             <MaterialCommunityIcons name="cart-outline" size={30} color={this.state.module==2?"#900":"gray"} />
+             <MaterialCommunityIcons name="cart-outline" size={30} color={this.state.module==2?colors.primarydark:"gray"} />
              <Text>Cart</Text>
            </TouchableOpacity>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:3})}>
-             <MaterialCommunityIcons name="routes" size={30} color={this.state.module==3?"#900":"gray"} />
+             <MaterialCommunityIcons name="routes" size={30} color={this.state.module==3?colors.primarydark:"gray"} />
              <Text>Routes</Text>
            </TouchableOpacity>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:4})}>
-             <AntDesign name="message1" size={30} color={this.state.module==4?"#900":"gray"} />
+             <AntDesign name="message1" size={30} color={this.state.module==4?colors.primarydark:"gray"} />
              <Text>My Account</Text>
            </TouchableOpacity>
          </View>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   bottomTab:{
     height:60,
     width:width,
-    backgroundColor:'orange',
+    backgroundColor: colors.primarylight,
     flexDirection:'row',
     justifyContent:'space-between',
     elevation:8,
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
     width:width/4,
     backgroundColor:'white',
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    
   }
 })
