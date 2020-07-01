@@ -16,23 +16,20 @@ export default class Profile extends Component {
             <Text style={styles.title} >Monica Berry</Text>
             <Text style={styles.subTitle} >monicaberry@gmail.com</Text>
           </View>
-        <View>
-          <View>
-            <MaterialCommunityIcons name="android-messages" size={24} color="black" />
-            <Text>Messages</Text>
-          </View>
-          <View>
-            <MaterialCommunityIcons name="routes" size={24} color="black" />
-            <Text>My routes</Text>
-          </View>
-          <View>
-            <AntDesign name="logout" size={24} color="black" />
-            <Text>Log Out</Text>
-          </View>
-          
-        
-        
         </View>        
+        <View style={styles.body}>
+          <TouchableOpacity style={styles.messages}>
+            <MaterialCommunityIcons name="android-messages" size={30} color="green" />
+            <Text style={styles.text}>Messages</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.routes}>
+            <MaterialCommunityIcons name="routes" size={30} color="green" />
+            <Text style={styles.text}>My routes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.logout}>
+            <AntDesign name="logout" size={30} color="green" />
+            <Text style={styles.text}>Log Out</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -46,8 +43,17 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
   },
+
+  body: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
   firstContainer: {
     flex: 1,
+    flexDirection: 'column',
+    
 
   },
   header: {
@@ -64,6 +70,23 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     marginLeft: 15,
+  },
+  messages: {
+    flexDirection: 'row',
+    fontSize: 30,
+    margin: 20,
+  },
+  logout: {
+    flexDirection: 'row',
+    margin: 20,
+  },
+  routes: {
+    flexDirection: 'row',
+    margin: 20,
+  },
+  text: {
+    fontSize: 25,
+    marginLeft: 10,
   }
 
 
