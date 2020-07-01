@@ -4,12 +4,9 @@ import { Text, View, Image, Dimensions, TouchableOpacity, StyleSheet, ScrollView
 // import icons
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
+import colors from './colors';
 
 var { width } = Dimensions.get("window")
-
-
-
-
 
 export default class Cart extends Component {
 
@@ -25,8 +22,8 @@ export default class Cart extends Component {
     AsyncStorage.getItem('cart').then((cart)=>{
       if (cart !== null) {
         // We have data!!
-        const cartfood = JSON.parse(cart)
-        this.setState({dataCart:cartfood})
+        const cartbike = JSON.parse(cart)
+        this.setState({dataCart:cartbike})
       }
     })
     .catch((err)=>{
@@ -38,7 +35,7 @@ export default class Cart extends Component {
     return (
       <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
          <View style={{height:20}} />
-         <Text style={{fontSize:28, color:"gray"}}>Cart food</Text>
+         <Text style={{fontSize:28, color: colors.primarydark, marginTop: 20}}>Cart</Text>
          <View style={{height:10}} />
 
          
@@ -55,18 +52,18 @@ export default class Cart extends Component {
                       <View style={{flex:1, backgroundColor:'transparent', padding:10, justifyContent:"space-between"}}>
                         <View>
                           <Text style={{fontWeight:"bold", fontSize:20}}>{item.food.name}</Text>
-                          <Text>Descripcion de food </Text>
+                          <Text>Description of product </Text>
                         </View>
                         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                          <Text style={{fontWeight:'bold',color:"#9fd236",fontSize:20}}>${item.price*item.quantity}</Text>
+                          <Text style={{fontWeight:'bold',color: colors.primarydark,fontSize:20}}>${item.price*item.quantity}</Text>
                           <View style={{flexDirection:'row', alignItems:'center'}}>
 
                             <TouchableOpacity onPress={()=> this.onChangeQuat(i, false) }>
-                              <Icon name="ios-remove-circle" size={30} color={"#9fd236"} />
+                              <Icon name="ios-remove-circle" size={30} color={colors.primary} />
                             </TouchableOpacity>
                             <Text style={{paddingHorizontal:8, fontWeight:'bold'}}>{item.quantity}</Text>
                             <TouchableOpacity onPress={()=> this.onChangeQuat(i, true) }>
-                              <Icon name="ios-add-circle" size={30} color={"#9fd236"} />
+                              <Icon name="ios-add-circle" size={30} color={colors.primary} />
                             </TouchableOpacity>
                           </View>
                         </View>
@@ -89,7 +86,7 @@ export default class Cart extends Component {
          <View style={{height:10}} />
 
        <TouchableOpacity style={{
-           backgroundColor:"#9fd236",
+           backgroundColor: colors.primarylight,
            width:width-40,
            alignItems:'center',
            padding:10,
@@ -98,7 +95,7 @@ export default class Cart extends Component {
          <Text style={{
              fontSize:24,
              fontWeight:"bold",
-             color:'white'
+             color: colors.white,
            }}>
            CHECKOUT
          </Text>
