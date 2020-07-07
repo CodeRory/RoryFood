@@ -18,8 +18,7 @@ export default class Cart extends Component {
   componentDidMount()
   {
     AsyncStorage.getItem('cart').then((cart)=>{
-      if (cart !== null) {
-        // We have data!!
+      if (cart !== null) {        
         const cartbike = JSON.parse(cart)
         this.setState({dataCart:cartbike})
       }

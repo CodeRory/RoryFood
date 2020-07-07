@@ -18,11 +18,7 @@ export default class Index extends Component {
      this.state = {
        module: 1,
      };
-  }
-
-  /* Básicamente lo que ocurre es que si el module es 1, te va a llevar a la comida, si es 2 al carrito, etc.
-  Abajo, cuando rendericemos los distintos componentes, cada uno tendrá un onPress que cambiará este módulo,
-  mostrándonos así las distintas secciones.  */
+  }  
 
   render() {
     return (
